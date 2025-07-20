@@ -1,0 +1,166 @@
+.wrapper {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 20%;
+}
+
+.logo > img {
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.list-link {
+    width: 55%;
+    text-align: center;
+}
+
+.list-link > li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.list-link > li > span {
+    display: none;
+}
+.list-link > .active > span {
+    display: block;
+}
+
+.list-link > li > a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: gray;
+    font-weight: bold;
+}
+
+.list-link > .active > a {
+    color: red;
+}
+
+.other {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.other > button {
+   background: transparent;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   padding: 10px;
+}
+
+.icon {
+    font-size: 2.3rem;
+    color: black;
+}
+
+
+
+.line {
+    width: 100%;
+    height: 2px;
+   background-color: red;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.shopping-cart {
+    position: relative;
+}
+
+.notify-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: orangered;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media only screen and (max-width:1200px) {
+    .other > button {
+        padding: 10px;
+        margin-right: 15px;
+    }
+}
+
+@media only screen and (max-width:1050px) {
+    .wrapper .logo {
+        width: 25%;
+    }
+
+    .logo > img {
+        width: 180px;
+    }
+
+    .wrapper .list-link {
+        width: 50%;
+    }
+
+    .list-link > li {
+        margin: 0 10px;
+    }
+
+    .other > button {
+        padding: 8px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .wrapper .logo {
+        width: 20%;
+    }
+
+    .logo > img {
+        width: 130px;
+    }
+
+    .wrapper .list-link {
+        width: 55%;
+    }
+
+    .list-link > li {
+        margin: 0 8px;
+       
+    }
+
+    .list-link > li > a {
+        font-size: 1.7rem;
+    }
+
+    .other > button {
+        padding: 8px;
+        margin-right: 10px;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .wrapper > .list-link {
+        display: none;
+    }
+
+    .wrapper .logo {
+        width: 60%;
+    }
+
+    .logo > img {
+        width: 140px;
+    }
+}

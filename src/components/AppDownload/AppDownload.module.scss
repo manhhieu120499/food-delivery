@@ -1,0 +1,38 @@
+.wrapper {
+    width: 40%;
+    margin: 70px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.wrapper > h1 {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.app-download {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-download > img {
+    height: 100%;
+    width: 48%;
+}
+
+@media only screen and (max-width:750px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:750px) and (max-width:1050px) {
+    .wrapper {
+        width: 50%;
+    }
+}
+

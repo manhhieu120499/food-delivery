@@ -1,0 +1,44 @@
+.wrapper-footer {
+    margin-top: 40px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.info-contact > h1 {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.info-contact > p {
+    margin-bottom: 12px;
+    color: white;
+    font-size: 2rem;
+}
+
+@media only screen and (max-width:750px) {
+    .wrapper-footer {
+        flex-direction: column;
+        row-gap: 15px;
+        text-align: center;
+    }
+
+    .wrapper-footer > img {
+        margin-top: 10px;
+    }
+
+    .info-contact > h1 {
+    font-size: 2.5rem;
+    
+}
+
+.info-contact > p {
+    
+    font-size: 1.5rem;
+}
+}
+

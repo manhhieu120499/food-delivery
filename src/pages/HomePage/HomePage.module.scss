@@ -1,0 +1,72 @@
+.wrapper-home {
+    width: 100%;
+    height: auto;
+}
+
+.explore, .food-top {
+    width: 100%;
+}
+
+.explore-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.explore-des {
+    width: 60%;
+    font-size: 1.6rem;
+    margin: 20px 0 15px 0;
+    color: gray;
+}
+
+.explore-submenu {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+}
+
+.line {
+    width: 100%;
+    margin: 35px 0;
+    background-color: rgb(215, 194, 194);
+    height: 2px;
+    border-radius: 2px;
+}
+
+/*food top dish*/
+.food-top-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.food-list {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 35px;
+}
+
+@media only screen and (max-width:1250px) {
+     .explore-submenu {
+        overflow: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: none;   
+        -ms-overflow-style: none;
+    }
+}
+
+@media only screen and (max-width:1050px) {
+    .explore-submenu {
+        overflow: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: none;   
+        -ms-overflow-style: none;
+    }
+
+    .explore-des {
+        width: 100%;
+    }
+}

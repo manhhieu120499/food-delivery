@@ -1,0 +1,235 @@
+.wrapper-cart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.table-order {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-head, .table-body {
+    width: 100%;
+    
+}
+
+.table-head > tr > th {
+    font-size: 2rem;
+    font-weight: bold;
+    color: gray;
+    height: 60px;
+    text-align: left;
+    width: 17%;
+    
+}
+
+.table-head > tr > th:nth-child(2) {
+    width: 20%;
+}
+
+.table-head > tr,
+.table-body > tr {
+    width: 100%;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.table-body > tr > td {
+    font-size: 1.7rem;
+    color: black;
+    padding: 5px 0;  
+}
+
+// .table-body > tr > td:nth-of-type(2) {
+//     width: 75%;
+//     white-space: normal;
+//     word-wrap: break-word;
+//     display: inline-block;
+// }
+
+.table-body > tr> td:nth-of-type(3),
+.table-body > tr> td:nth-of-type(4),
+.table-body > tr> td:nth-of-type(5) {
+    font-weight: 600;
+}
+
+.table-body > tr> td:nth-of-type(4){
+    padding-left: 15px;
+}
+
+.image-order {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.btn-remove {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.quantity {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 1.7rem;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* payment total*/
+.payment-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 300px;
+    margin-top: 70px;
+}
+
+.info-payment {
+    width: 50%;
+}
+
+.info-payment > h1 {
+    font-size: 3.2rem;
+    color: black;
+    font-weight: bold; 
+    margin-bottom: 15px;
+}
+
+.info-item {
+    width: 80%;
+    height: 30px;
+    border-bottom: 1px solid #e7e7e7;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-item:last-of-type {
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.info-item > .title-info-item, 
+.info-item > .price-info-item {
+    font-size: 1.7rem;
+    color: rgb(152, 124, 124);
+}
+
+.info-item:last-of-type > .title-info-item, 
+.info-item:last-of-type > .price-info-item {
+    color: black;
+}
+
+.btn-pay {
+    width: 40%;
+    height: 40px;
+    color: white;
+    margin: 20px 0;
+    background-color: #ff4c24;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgb(126, 22, 22);
+}
+
+/*discount promo*/
+.discount {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+
+.discount-des {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: rgb(152, 133, 133);
+}
+
+.promo-discount {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.promo-code {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #e1e1e1;
+}
+
+.btn-submit-code {
+    width: 180px;
+    height: 100%;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:750px) {
+    .payment-total {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .payment-total .discount,
+    .payment-total .info-payment {
+        width: 100%;
+    }
+
+    .table-head > tr > th {
+        font-size: 1.6rem;
+    }
+
+    .btn-pay {
+        font-size: 1.4rem;
+        width: 70%;
+    }
+
+    .table-body > tr > td {
+       font-size: 1.2rem;
+       
+    }
+
+    .image-order {
+    width: 40px;
+    height: 20px;
+    object-fit: cover;
+}
+ .quantity {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1.5rem;
+ }
+}
+
+@media only screen and (min-width:750px) and (max-width:1050px) {
+    .btn-pay {
+        width: 70%;
+    }
+}
