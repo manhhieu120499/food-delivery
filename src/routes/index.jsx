@@ -1,4 +1,4 @@
-import { HomePage, ContactPage, MenuPage, MobilePage, CartPage, PaymentPage } from "../pages";
+import { HomePage, ContactPage, MenuPage, MobilePage, CartPage, PaymentPage, PlaceOrder } from "../pages";
 import DefaultLayout from "../layouts/DefaultLayout";
 
 const publicRoute = [
@@ -31,6 +31,11 @@ const publicRoute = [
     path: "/payment",
     layout: DefaultLayout,
     page: PaymentPage,
+  },
+  {
+    path: "/myorders",
+    layout: DefaultLayout,
+    page: PlaceOrder,
   },
 ];
 

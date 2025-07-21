@@ -3,10 +3,12 @@ import classNames from "classnames/bind";
 import styles from "./PaymentPage.module.scss";
 
 import Input from "../../components/Input";
+import { useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 const PaymentPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className={cx("wrapper-payment")}>
@@ -51,7 +53,7 @@ const PaymentPage = () => {
             <span className={cx("title-info-item")}>Total</span>
             <span className={cx("price-info-item")}>$60</span>
           </div>
-          <button className={cx("btn-pay")}>Proceed To Payment</button>
+          <button className={cx("btn-pay")} onClick={() => navigate('/myorders')}>Proceed To Payment</button>
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import MenuPage from "./MenuPage"
 import MobilePage from './MobilePage'
 import CartPage from "./CartPage"
 import PaymentPage from "./PaymentPage"
+import PlaceOrder from "./PlaceOrder"
 
 export {
     HomePage,
@@ -11,5 +12,6 @@ export {
     MenuPage,
     MobilePage,
     CartPage,
-    PaymentPage
+    PaymentPage,
+    PlaceOrder
 }
