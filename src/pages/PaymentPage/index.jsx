@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./PaymentPage.module.scss";
-import Navbar from "../../components/Navbar";
+
 import Input from "../../components/Input";
 
 const cx = classNames.bind(styles);
@@ -9,7 +9,6 @@ const cx = classNames.bind(styles);
 const PaymentPage = () => {
   return (
     <>
-      <Navbar />
       <div className={cx("wrapper-payment")}>
         <div className={cx("delivery-info")}>
           <h1>Delivery Information</h1>

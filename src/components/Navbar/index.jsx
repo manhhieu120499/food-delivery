@@ -29,7 +29,7 @@ const navMenu = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({onClick=() =>{}}) => {
   let location = useLocation();
   const user = false;
   const shoppingCart = []
@@ -64,7 +64,7 @@ const Navbar = () => {
             <FontAwesomeIcon className={cx("icon")} icon={faCircleUser} />
           </button>
         ) : (
-          <Button text={"sign in"} />
+          <Button text={"sign in"} onClick={onClick}/>
         )}
       </div>
     </div>

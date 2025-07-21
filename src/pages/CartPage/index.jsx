@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./CartPage.module.scss";
-import Navbar from "../../components/Navbar";
 import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
@@ -9,7 +8,6 @@ const cx = classNames.bind(styles);
 const CartPage = () => {
   return (
     <>
-      <Navbar />
       <div className={cx("wrapper-cart")}>
         {/** table order food */}
         <table className={cx('table-order')}>

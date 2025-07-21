@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import classNames from "classnames/bind";
 import styles from "./HomePage.module.scss";
 import Banner from "../../components/Banner";
@@ -298,7 +297,6 @@ const HomePage = () => {
   }
   return (
     <>
-      <Navbar />
       <div className={cx("wrapper-home")}>
         <Banner imageSrc={headerImage} />
 

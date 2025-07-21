@@ -2,6 +2,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import Footer from './layouts/Footer';
 import { publicRoute } from "./routes";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
+      <Toaster/>
     </>
   );
 }

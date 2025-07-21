@@ -25,3 +25,17 @@
 .medium > .content {
     font-weight: bold;
 }
+
+
+/*custom button*/
+.rectangle {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #fd5c24;
+}
+
+.rectangle .content {
+    font-size: 1.6rem;
+    color: white;
+}
