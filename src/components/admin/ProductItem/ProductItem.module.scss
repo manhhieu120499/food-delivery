@@ -1,0 +1,30 @@
+.row-product {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+}
+
+.product-image {
+    width: 150px;
+    height: 80px;
+}
+
+.product-image > img {
+    width: 100px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.product-name {
+    max-width: 160px;
+    white-space: wrap;
+}
+
+td {
+    font-size: 1.5rem;
+}
+
+.row-product > td:nth-last-of-type(1) {
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding-left: 20px;
+}

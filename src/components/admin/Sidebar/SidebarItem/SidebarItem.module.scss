@@ -1,0 +1,29 @@
+.wrapper-sidebar-item {
+    width: 80%;
+    height: 45px;
+    padding: 8px 5px;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    border: 1px solid black;
+    border-right: none;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-left: 10px;
+}
+
+.wrapper-sidebar-item > .title{
+    font-size: 1.7rem;
+    font-weight: normal;
+}
+
+.wrapper-sidebar-item.active {
+    border: 1px solid rgb(198, 76, 32);
+    border-right: none;
+    background-color: #feeae3;
+}

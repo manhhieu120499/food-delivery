@@ -1,0 +1,92 @@
+.wrapper-order-item {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid orange;
+    margin-bottom: 15px;
+}
+
+.picture-order {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.title-order {
+    max-width: 250px;
+    white-space: wrap;
+    text-align: justify;
+    font-size: 1.6rem;
+}
+
+.amount {
+    font-size: 1.6rem;
+}
+
+.status-order {
+    display: flex;
+    column-gap: 8px;
+    font-size: 1.6rem;
+}
+
+.status-tracking {
+    width: 150px;
+    height: 45px;
+    padding: 0 10px;
+    background-color: #feeae3;
+    border: 1px solid transparent;
+}
+
+.status-tracking:focus {
+    border: 1px solid transparent;
+}
+
+.status-tracking > option {
+    height: 25px;
+    display: block;
+}
+
+.info-cus {
+    margin-top: 25px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.cus-name {
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.address-cus, .phone-cus {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgb(151, 130, 130);
+    line-height: 1.5;
+}
+
+
+
+@media only screen and (max-width:750px) {
+    .wrapper-order-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media only screen and (min-width:750px) and (max-width: 1050px) {
+    .title-order {
+        max-width: 180px;
+        white-space: wrap;
+        text-align: justify;
+        font-size: 1.4rem;
+    }
+    .amount {
+        font-size: 1.4rem;
+    }
+    .status-order {
+        font-size: 1.4rem;
+    }
+}

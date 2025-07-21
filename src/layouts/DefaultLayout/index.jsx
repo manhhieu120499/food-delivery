@@ -4,6 +4,7 @@ import styles from './DefaultLayout.module.scss';
 import Navbar from '../../components/Navbar'
 import LoginPopup from '../../components/LoginPopup';
 import SignInPopup from '../../components/SignInPopup';
+import Footer from '../Footer';
 
 
 const cx = className.bind(styles)
@@ -15,12 +16,17 @@ const DefaultLayout = ({children}) => {
     })
    
     return (
-        <div className={cx('wrapper')}>
+        <>
+            <div className={cx('wrapper')}>
             <Navbar onClick={() => setShow({login: false, signUp: true})}/>
             {children}  
             {show.login && <LoginPopup setShowLogin={setShow} />}
             {show.signUp && <SignInPopup setShowSignUp={setShow} />}
+             
         </div>
+        <Footer/>
+        </>
+        
     );
 }
 

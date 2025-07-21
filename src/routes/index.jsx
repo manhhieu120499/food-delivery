@@ -1,5 +1,9 @@
 import { HomePage, ContactPage, MenuPage, MobilePage, CartPage, PaymentPage, PlaceOrder } from "../pages";
 import DefaultLayout from "../layouts/DefaultLayout";
+import OrderTracking from "../components/admin/OrderTracking";
+import AdminLayout from "../layouts/admin/AdminLayout";
+import Dashboard from "../pages/admin/Dashboard";
+import Products from "../pages/admin/Products";
 
 const publicRoute = [
   {
@@ -39,4 +43,22 @@ const publicRoute = [
   },
 ];
 
-export { publicRoute };
+const privateRoute = [
+  {
+    path: '/admin/dashboard',
+    layout: AdminLayout,
+    page: Dashboard
+  },
+  {
+    path: '/admin/orders',
+    layout: AdminLayout,
+    page: Dashboard
+  },
+   {
+    path: '/admin/list',
+    layout: AdminLayout,
+    page: Products
+  }
+]
+
+export { publicRoute, privateRoute };

@@ -1,0 +1,44 @@
+.wrapper-navbar-admin {
+    width: 100%; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    z-index: 100;
+    background-color: white;
+    border-bottom: 1px solid #d9d9d9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.navbar-content {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    height: 100%; 
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo > img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.logo > p {
+    font-size: 1.5rem;
+    color: black;
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+}

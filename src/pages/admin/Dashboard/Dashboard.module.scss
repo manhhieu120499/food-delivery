@@ -1,0 +1,13 @@
+.wrapper-dashboard {
+    width: calc(100% - 350px);
+    margin-left: 350px;
+    padding-top: 150px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: auto;
+}
+
+.wrapper-dashboard > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
