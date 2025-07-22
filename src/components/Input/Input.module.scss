@@ -14,3 +14,18 @@
 .medium {
     width: 100%;
 }
+
+/*input-admin*/
+.wrapper.admin-default {
+    width: 100%;
+    height: 45px;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    padding: 0 10px;
+    font-size: 1.7rem;
+}
+
+.wrapper.admin-default:focus {
+    border: 1px solid black;
+    outline: 1px solid black;
+}

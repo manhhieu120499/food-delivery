@@ -4,6 +4,7 @@ import OrderTracking from "../components/admin/OrderTracking";
 import AdminLayout from "../layouts/admin/AdminLayout";
 import Dashboard from "../pages/admin/Dashboard";
 import Products from "../pages/admin/Products";
+import CreateProduct from "../pages/admin/CreateProduct";
 
 const publicRoute = [
   {
@@ -58,6 +59,11 @@ const privateRoute = [
     path: '/admin/list',
     layout: AdminLayout,
     page: Products
+  },
+  {
+    path: '/admin/add',
+    layout: AdminLayout,
+    page: CreateProduct
   }
 ]
 
