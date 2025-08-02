@@ -5,6 +5,13 @@ import crossIcon from "../../assets/frontend/cross_icon.png";
 import Input from "../Input";
 import Button from "../Button";
 import toast from "react-hot-toast";
+import validator from "validator";
+import axiosInstance from "../../lib/axios";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/slice";
+import { useNavigate } from "react-router-dom";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const cx = classNames.bind(styles);
 
@@ -14,14 +21,83 @@ const SignInPopup = ({ setShowSignUp = () => {} }) => {
     email: "",
     password: "",
   });
+  const [checkTerm, setCheckTerm] = useState(false);
 
-  const handleSignIn = () => {
-    // xử lý logic ở đây
-    toast.success("Login success!", {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSignIn = async () => {
+    const { username, email, password } = account;
+    const stylesMessage = {
       style: {
-        fontSize: "1.7rem",
-      },
-    });
+        fontSize: '1.5rem'
+      }
+    }
+
+    // validate
+    if (!username || !email || !password) {
+      toast.error("Please fill in all field", {
+        ...stylesMessage
+      });
+      return;
+    }
+    if (username.length < 5) {
+      toast.error("Min Length username is 5", {
+        ...stylesMessage
+      });
+      return;
+    }
+    if (!validator.isEmail(email)) {
+      toast.error("Email is not valid", {
+        ...stylesMessage
+      });
+      return;
+    }
+    if (
+      !validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minSymbols: 1,
+        minNumbers: 1,
+      })
+    ) {
+      toast.error("Password is not enough strong", {
+        ...stylesMessage
+      });
+      return;
+    }
+    if (!checkTerm) {
+      toast.error("Please accepted my term", {
+        icon: <FontAwesomeIcon icon={faTriangleExclamation} color="#fe5000"/>,
+        style: {
+          fontSize: "1.7rem",
+        },
+      });
+      return;
+    }
+
+    // xử lý logic ở đây
+    try {
+      const response = await axiosInstance.post("/auth/sign-up", {
+        ...account,
+        role: 'customer'
+      });
+      if (response.data.status == "OK") {
+        toast.success(response.data.message, {
+          ...stylesMessage
+        });
+        localStorage.setItem('user', JSON.stringify(response.data.account))
+        dispatch(login(response.data.account))
+        navigate("/")
+        setShowSignUp(false)
+      }
+    } catch (err) {
+      toast.success(err.response.data.message, {
+        ...stylesMessage
+      });
+      return;
+    }
   };
   return (
     <div className={cx("wrapper-signin")}>
@@ -69,7 +145,8 @@ const SignInPopup = ({ setShowSignUp = () => {} }) => {
           />
         </form>
         <div className={cx("des")}>
-          <input type="checkbox" />
+          <input type="checkbox" value={checkTerm}
+            onChange={() => setCheckTerm((prev) => !prev)}/>
           <span>By continuing, i agree the terms of use & private policy</span>
         </div>
         <div className={cx("footer-content")}>

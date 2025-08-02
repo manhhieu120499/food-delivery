@@ -164,3 +164,80 @@
         width: 140px;
     }
 }
+
+.profile-navbar {
+    position: relative;
+    padding: 10px 5px;
+    cursor: pointer;
+   
+
+    & > .menu-popup {
+        min-width: 120px;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        display: none;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         
+        
+
+        & > .menu-item {
+            background-color: #d9d9d9;
+            border: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 40px;
+            text-decoration: none;
+            color: black;
+
+            & > .icon {
+                font-size: 1.7rem;
+            }
+
+            & > span {
+                font-size: 1.7rem;
+            }
+
+            &:hover {
+                background-color: white;
+                cursor: pointer;
+            }
+
+        }
+
+        & > .menu-item:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        & > .menu-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+
+    & > .menu-popup::before {
+        width: 15px;
+        height: 15px;
+        content: "";
+        position: absolute;
+        transform: translateY(8px) rotate(45deg);
+        top: -16px;
+        right: 7px;
+        font-size: 1.5rem;
+        background-color: #d9d9d9;
+    }
+
+    &:hover > .menu-popup {
+        display: block;
+    }
+
+}
+
+.menu-popup:has(.menu-item:first-child:hover)::before {
+    background-color: white;
+    border-top: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+}

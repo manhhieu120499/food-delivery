@@ -1,19 +1,26 @@
 import DefaultLayout from "./layouts/DefaultLayout";
 import Footer from "./layouts/Footer";
 import { publicRoute, privateRoute } from "./routes";
-import {
-  Routes,
-  Route,
-  BrowserRouter as Router,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "./redux/auth/slice";
 
 function App() {
   const auth = useSelector((state) => state.AuthSlice.user);
-  console.log(Object.keys(auth).length);
+  const dispatch = useDispatch();
+  if (Object.keys(auth).length == 0) {
+    try{
+       const user = JSON.parse(localStorage.getItem("user"))
+        if (user){
+          dispatch(login(user));
+        }
+    }catch {
+      localStorage.setItem('user', null)
+    }
+   
+  }
 
   return (
     <>
@@ -34,23 +41,26 @@ function App() {
               />
             );
           })}
-          {auth.role == "admin" &&
-            privateRoute.map((routeItem, index) => {
-              let Layout = routeItem.layout;
-              let Page = routeItem.page;
-              if (Layout == null) Layout = Fragment;
-              return (
-                <Route
-                  key={index}
-                  path={routeItem.path}
-                  element={
+          {privateRoute.map((routeItem, index) => {
+            let Layout = routeItem.layout;
+            let Page = routeItem.page;
+            if (Layout == null) Layout = Fragment;
+            return (
+              <Route
+                key={index}
+                path={routeItem.path}
+                element={
+                  auth?.role == "admin" ? (
                     <Layout>
                       <Page />
                     </Layout>
-                  }
-                />
-              );
-            })}
+                  ) : (
+                    <div>404 NOT FOUND</div>
+                  )
+                }
+              />
+            );
+          })}
         </Routes>
       </Router>
       <Toaster />

@@ -5,9 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faArrowCircleRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Button";
 import logo from "../../assets/frontend/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/auth/slice";
+import toast from "react-hot-toast";
+import axiosInstance from "../../lib/axios";
 
 const cx = classNames.bind(styles);
 const navMenu = [
@@ -29,10 +34,33 @@ const navMenu = [
   },
 ];
 
+const stylesMessage = {
+    style: {
+        fontSize: '1.5rem'
+    }
+}
+
 const Navbar = ({onClick=() =>{}}) => {
   let location = useLocation();
-  const user = false;
+  const user = useSelector(state => state.AuthSlice.user);
   const shoppingCart = []
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogout = async (e) => {
+    e.preventDefault()
+    try{
+        const response = await axiosInstance.post('/auth/logout')
+        localStorage.setItem('user', null)
+        dispatch(logout())
+        navigate("/")
+        toast.success(response.data.message, stylesMessage)
+    }catch(err) {
+        toast.error(err.response.data.message, stylesMessage)
+        return;
+    }
+    
+  }
 
   return (
     <div className={cx("wrapper")}>
@@ -59,10 +87,21 @@ const Navbar = ({onClick=() =>{}}) => {
           {shoppingCart.length > 0 && <p className={cx('notify-circle')}></p>}
         </button>
           
-        {user ? (
-          <button>
+        {Object.keys(user).length > 0 ? (
+          <div className={cx('profile-navbar')}>
             <FontAwesomeIcon className={cx("icon")} icon={faCircleUser} />
-          </button>
+            <div className={cx('menu-popup')}>
+              <button className={cx('menu-item')} to={'/profile'}>
+                <FontAwesomeIcon className={cx('icon')} icon={faUser}/>
+                <span>Profile</span>
+              </button>
+              <button className={cx('menu-item')} to={'/logout'} onClick={handleLogout}>
+                <FontAwesomeIcon className={cx('icon')} icon={faArrowCircleRight}/>
+                <span>Logout</span>
+              </button>
+              
+            </div>
+          </div>
         ) : (
           <Button text={"sign in"} onClick={onClick}/>
         )}
