@@ -5,25 +5,27 @@ import addFoodIcon from "../../assets/frontend/add_icon_white.png";
 import rating from "../../assets/frontend/rating_starts.png";
 import addIconGreen from "../../assets/frontend/add_icon_green.png";
 import minusIconRed from "../../assets/frontend/remove_icon_red.png";
+import { useDispatch } from "react-redux";
+import { addFood, decreaseFood } from "../../redux/shoppingCart/slice";
 
 const cx = classNames.bind(styles);
 
-const FoodCard = ({name, pic, price}) => {
+const FoodCard = ({id, name, pic, price, des}) => {
   const [count, setCount] = useState(0);
-  const [add, setAdd] = useState(false);
+  // const [add, setAdd] = useState(false);
+  const dispatch = useDispatch()
 
-  const addFood = () => {
-    setAdd((prev) => !prev);
-    increaseFoodOrder();
-  };
-
-  const increaseFoodOrder = () => {
-    setCount((prev) => prev + 1);
+  const handleAddFood = () => {
+     dispatch(addFood({
+      food: {id, name, pic, price, quantity: count + 1}
+     }))
+     setCount(prev => prev + 1)
   };
 
   const decreaseOrderFood = () => {
+    dispatch(decreaseFood({id}))
     setCount((prev) => {
-      if (prev - 1 == 0) setAdd(false);
+      if (prev - 1 == 0) return 0;
       return prev - 1;
     });
   };
@@ -34,13 +36,13 @@ const FoodCard = ({name, pic, price}) => {
         <img src={pic} alt="food-image" loading="lazy" />
 
         <div className={cx("add-food")}>
-          {!add ? (
-            <img src={addFoodIcon} alt="add-food" onClick={addFood} />
+          {count == 0 ? (
+            <img src={addFoodIcon} alt="add-food" onClick={handleAddFood} />
           ) : (
             <div className={cx("increase-decrease-food")}>
               <img src={minusIconRed} alt="minus" onClick={decreaseOrderFood} />
               {count > 0 && <span className={cx("amount-food")}>{count}</span>}
-              <img src={addIconGreen} alt="plus" onClick={increaseFoodOrder} />
+              <img src={addIconGreen} alt="plus" onClick={handleAddFood} />
             </div>
           )}
         </div>
@@ -51,7 +53,7 @@ const FoodCard = ({name, pic, price}) => {
           <img src={rating} alt="rating-food" />
         </div>
         <p className={cx("food-des")}>
-          Food provides essential nutrients for overall health and well-being
+          {des}
         </p>
         <p className={cx("food-price")}>${price}</p>
       </div>

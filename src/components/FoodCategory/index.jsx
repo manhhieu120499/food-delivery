@@ -4,9 +4,9 @@ import styles from './FoodCategory.module.scss'
 
 const cx = classNames.bind(styles)
 
-const FoodCategory = ({name, imageSrc, onClick=() => {}, index}) => {
+const FoodCategory = ({id,name, imageSrc, onClick=() => {}}) => {
     return (
-        <button className={cx('wrapper')} onClick={() => onClick(index)}>
+        <button className={cx('wrapper')} onClick={() => onClick(id)}>
             <img src={imageSrc} className={cx('avatar')} alt='avatar-food-category' loading='lazy'/>
             <p className={cx('title')}>{name}</p>
         </button>

@@ -80,13 +80,16 @@
 }
 
 .notify-circle {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: orangered;
     position: absolute;
     top: 0;
     right: 0;
+    color: white;
+    font-size: 1.3rem;
+    border: 1px solid #d9d9d9;
 }
 
 @media only screen and (max-width:1200px) {

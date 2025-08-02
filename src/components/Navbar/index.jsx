@@ -43,7 +43,7 @@ const stylesMessage = {
 const Navbar = ({onClick=() =>{}}) => {
   let location = useLocation();
   const user = useSelector(state => state.AuthSlice.user);
-  const shoppingCart = []
+  const {total: shoppingCart} = useSelector(state => state.ShoppingCartSlice)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -84,7 +84,7 @@ const Navbar = ({onClick=() =>{}}) => {
           <Link to={'/cart'}>
             <FontAwesomeIcon className={cx("icon")} icon={faCartShopping} />
           </Link>
-          {shoppingCart.length > 0 && <p className={cx('notify-circle')}></p>}
+          {shoppingCart > 0 && <p className={cx('notify-circle')}>{shoppingCart}</p>}
         </button>
           
         {Object.keys(user).length > 0 ? (
